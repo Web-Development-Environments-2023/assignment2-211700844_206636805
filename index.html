@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script type="text/javascript" src="./code.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.js"></script>
+	</head>
+	<body style="background-image: url('photos/back_1.jpg');">
+		<!-------------------- logo -------------------------------->
+		<div class="header" style="position: fixed;">
+			<img  class="logo1" src="photos/logo.png" width=100 height=50/>
+			<img  class="logo2" src="photos/gif.gif" width=40 height=60 style="	float:right; margin-right: 2%;"/>
+		</div>
+		<!---------------------------   menu   --------------------------->
+		<div class="menu">
+			<ul>
+				<il><a id="Welcome"  onclick="show('welcomePage')" style="font-size: 20px" >Welcome</a></il>
+				<il><a id="Registration" onclick="show('registrationPage')" style="font-size: 20px">Registration</a></il>
+				<il><a id="Login" onclick="show('LoginPage')" style="font-size: 20px">Login</a></il>
+				<li style = "display:inline;"><a id="btnAbout" type="button" style = "font-size: 20px;">About</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			<!---------------------------   Welcome   --------------------------->
+			<div id="welcomePage">
+				<center>
+					</br></br></br></br>
+					<img src="photos/welcome2.png" width=480 height=250>/></br></br></br></br>
+					<button onclick="show('LoginPage')" class="loginBtn">Log In</button>
+					<button onclick="show('registrationPage')" class="loginBtn" style="padding: 15px 15px;">Register</button></br>
+				</center>
+				</br></br></br></br></br></br></br></br></br></br>				
+			</div>
+			<!---------------------------   Registration   --------------------------->
+			<div id="registrationPage" style="background-image: url('photos/backRegister.PNG'); background-size: 100%; background-repeat:no-repeat;" hidden>
+					<form class="registrationForm" name="register">
+						<h1>Registration</h1>
+						<hr>
+	
+						<label for="firstname"><b>First Name</b></label>
+						<input type="text" placeholder="Enter Your First Name" name="firstname" id="firstname">
+	
+						<label for="lastname"><b>Last Name</b></label>
+						<input type="text" placeholder="Enter Your Last Name" name="lastname" id="lastname">
+	
+						<label for="username"><b>User Name</b></label>
+						<input type="text" placeholder="Choose User Name" name="username" id="username">
+	
+						<label for="email"><b>Email</b></label>
+						<input type="text" placeholder="Enter Your email" name="email" id="email">
+	
+						<label for="psw"><b>Password</b></label>
+						<input type="password" placeholder="Choose Password" name="psw" id="psw">
+
+						<label for="confirmPass"><b>Confirm Password</b></label>
+						<input type="password" placeholder="Enter again your password" name="confirmPass" id="confirmPass">
+	
+						<label for="Birthday"><b>Date of Birth:</b></label>
+						<SELECT id ="year" name = "year" onchange="change_year(this)">
+						</SELECT>
+						<SELECT  id ="month" name = "month" onchange="change_month(this)">
+						</SELECT>
+						<SELECT id ="day" name = "day" >
+						</SELECT>
+						<hr>
+						<button type="submit" class="submitRegistration">Register</button>
+					
+					</form>
+				</br></br></br></br></br></br></br></br></br></br>				
+			</div>
+			<!---------------------------   Login   --------------------------->
+			<div id="LoginPage" style="background-image: url('photos/backRegister.png'); background-size: 100%; background-repeat:no-repeat;" hidden>
+				<form class="registrationForm" name="login">
+					<h1>Login</h1>
+					<hr>
+
+					<label for="loginUsername"><b>User Name</b></label>
+					<input type="text" placeholder="Choose User Name" name="loginUsername" id="loginUsername">
+
+					<label for="loginPsw"><b>Password</b></label>
+					<input type="password" placeholder="Choose Password" name="loginPsw" id="loginPsw">
+
+					<hr>
+					<button type="submit" class="submitRegistration">Log In</button>
+
+				</form>
+				</br></br></br></br></br></br></br></br></br></br>
+				</br></br></br></br>	
+	
+			</div>
+
+			<!-------------------- Configuration -------------------------------->
+			<div id="configuration" hidden >
+			
+				<div class="container" >
+					<form action="/action_page.php" >
+						<table style="margin-top: 50px;">
+							<th colspan="3" ><h1 style="margin-top: 10px; font-size: 80px; padding: 0px;">Configuration</h1></th>												
+							<tr>
+								<td class = "th-def">Set time to game</td>
+								<td class = "th-select">
+									<input id="timeGame" type="number" min="120" max="10000000" step="1" value="120" oninput="time.value = this.value" onKeyDown="return false"> 
+								</td>
+								<td>
+									<output id="time" style="color: white;">120 </output>
+									<output style="color: white;"> sec</output>
+								</td>
+							</tr>
+
+							<tr>
+								<td class = "th-def">Choose key to shoot</td>
+								<td class = "th-select">
+									<input type="button" id="keyShoot" onkeydown="KeyUpdate(event)" oninput="key_shoot.value = this.value"></td>
+								<td>
+									<output id="key_shoot" style="color: white;"></output>
+									<output style="color: white;"> key</output>
+								</td>
+							</tr>
+						</table>
+					</form>
+					<table >
+						<th>
+							<center>
+								<button type="button"  onclick="setConfiguration()" class="submitConfiguration" >Start Game!</button>
+							</center>
+						</th>
+					</table>
+					
+				</div>
+				</br></br></br></br></br></br></br></br></br></br>
+
+			</div>
+			<!-------------------- Game -------------------------------->
+			<div id="gamePage" hidden >
+			</br></br></br>
+				<div>
+					<table class = "tbl_game">
+			
+						<tr height="15">
+							<td rowspan="1" width="11%"><center><input id="stopSound" type="image" onclick="stopSound()" src="photos/soundOn.png" width="60" height="48"></center></td>
+							<td rowspan="1" width="11%"><button class ="submitConfiguration" type="button"  onclick="newGame()" style="margin: 0;">New Game</button></td>
+							
+							<td  rowspan="14">
+								<div id="game" style="margin-left: 4px;">
+									<canvas style="border-color: #e8901d;" id="canvas" height="680" width="930"></canvas>
+								</div>
+							</td>
+							
+						</tr>
+						<tr height="15">
+							<td class = "set_in_game">
+								<label for="player"><center>Player:</center></label>
+							</td>
+							<td class = "set_in_game" colspan="1">
+								<input id="player_name" type="text" readonly="readonly"/>
+							</td>
+						</tr>
+						<tr height="45">
+							<td class = "set_in_game">
+								<label for="lbllife"><center>Live:</center></label>
+							</td>
+							<div id = "live">
+								<td>
+									<img class = "live_img" id="life1" src="photos/live.png" alt="logo" width=33 height=45 style="padding: 0px;"/>
+									<img class = "live_img" id="life2" src="photos/live.png" alt="logo" width=33 height=45 style="padding: 0px;"/>
+									<img class = "live_img" id="life3" src="photos/live.png" alt="logo" width=33 height=45 style="padding: 0px;"/>
+								</td>
+							</div>
+						</tr>
+						<tr height="15">
+							<td class = "set_in_game">
+								<div id="score">
+									<label for="lblScore"><center>SCORE:</center></label>
+								</div>
+							</td>
+							<td class = "set_in_game">
+								<div id="score">
+									<input id="lblScore" type="text" />
+								</div>
+							</td>
+						</tr>
+						<tr  height="15">
+							<td class = "set_in_game">
+								<div id="time" >
+									<label for="lblTime"><center>TIME to end:</center></label>
+								</div>
+							</td>
+							<td class = "set_in_game" >
+								<div id="time" >
+									<input id="lblTime" type="text" />
+								</div>
+							</td>
+						</tr>
+						
+						<tr height="15">
+							<td class = "set_in_game">
+								<label for="lblTime"><center>Total Time:</center></label>
+							</td>
+							<td class = "set_in_game" >
+								<input id="globalTime" value=1 type="text" readonly = "readonly"/>
+							</td>
+						</tr>
+						
+						<tr height="15">
+							<td class = "set_in_game">
+								<label for="lblTime"><center>Shoot:</center></label>
+							</td>
+							<td class = "set_in_game">
+								<input id="setkeyShoot" value="Space" type="text" readonly = "readonly" />
+							</td>
+						</tr>
+						<tr height="100">
+							<td> </td> <td></td>
+						</tr>
+						<tr></tr><tr></tr><tr></tr><tr></tr>
+
+					</table>
+				</div>
+			</div>
+			<!-------------------- Game-Over -------------------------------->
+			<div id="GameOver" hidden >
+			</br>
+				<center>
+					<p id="game_over" style="font-size: 60px; border: 10px; border-color: black; color: white;">Game-Over</p>
+					<table border=1 style="margin: 0 auto; color: white; text-align: center; font-size: 30px; border-color: white;"id="myTable">
+						<tr>
+							<td style="padding: 10px;">
+								Place
+							</td>
+							<td style="padding: 10px;">
+								Score
+							</td>
+							<td>
+								Date
+							</td>
+						</tr>
+					</table>
+					</br>
+					<button class="newGameButton" type="button"  id="registerButton" onclick="newGame()" >Start New Game</button>
+
+				<br/><br/><br/>	<br/>
+				</center>
+				</br></br></br></br></br></br></br></br></br></br>
+			</div>
+			<!---------------------------   About   --------------------------->
+			<div id = "about" hidden>
+			</div>
+
+		</div>
+		<div id="myModal" class="modal">
+
+			<div class="modal-content">
+				<div class="aboutHeader">
+					<span id = "btnClose" class="close">&times;</span>
+					<p style="text-align: center; font-size: 60px; margin: 5px;"><b>Chicken Invaders</b></p>
+			  	</div>
+			  	<div class="modal-body" style="direction: rtl; color: rgb(9, 1, 1);">
+					<br>
+					<b><u>שימוש ב-JQuery Plugin וב-Template:</u></b>
+					<ol type="i">
+						<li>שימוש בזמן ההרשמה בתור בדיקת תקינות ואילוצים</li>
+						<li>שימוש בזמן הרשמה, קונפיגורציה וכניסת משתמש </li>
+					</ol>
+					<b><u>קשיים:</u></b>
+					<ol type="i">
+						<LI>מורכב לכתוב קוד בתוכנה visual code כי היא לא הראתה שגיאות וקשה להבין מה לתקן</LI>
+						<LI>קשה לדאבג</LI>
+						<LI>הבנה רוחבית של העבודה כי יש כמה חלוניות</LI>
+					</ol>
+					<b><u>במשחק קיימים:</u></b>
+					<ol type="i">
+						<LI>טיימר המעיד על הזמן הנותר לסיום המשחק</LI>
+						<LI>שם המשתמש של השחקן המשחק כעת</LI>
+						<LI>ראשי תרנגולים המסמנים את ה"חיים" שנותרו לשחקן במשחק הנוכחי</LI>
+					</ol>
+					<center><p style="text-align: center; font-size: 20px; font-family: cursive; color: rgb(212, 149, 11);">מגישות- שליו מימון ומוריה כהן</p></center>
+					<br>
+				</div>  
+			</div>  
+		</div>
+		  
+		<script>
+			$("#myModal").hide();
+			var modal = document.getElementById("myModal");
+			var btn = document.getElementById("btnAbout");
+			var span = document.getElementsByClassName("close")[0];
+			btn.onclick = function() {
+				modal.style.display = "block";
+			}
+			window.onclick = function(event) {
+				if (event.target == modal) {
+				modal.style.display = "none";
+				}
+			}
+			$(document).ready(function ()
+				{
+					$("#btnClose").click(function ()
+					{
+						$("#myModal").hide();
+					});
+					$(document).on('keyup',function(evt) {
+					if (evt.keyCode == 27) {
+						$("#myModal").hide();
+				}   
+			});
+		});
+		</script>
+				
+		<footer class="footer" style="font-size: 14px; color:white;">
+			<br><br><br>
+			<center>
+				<p>This game was developed by <b> Moria Cohen (211700844) & Shalev Maimon (206636805) </b> as part of a "Web Development Enviourmnets" course in Ben Gurion University <a href="mailto:moriaco@post.bgu.ac.il">Contact Us</a></p>
+			<center>
+		</footer>
+	</body>
+
+</html>

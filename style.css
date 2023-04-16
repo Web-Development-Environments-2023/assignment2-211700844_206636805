@@ -1,0 +1,369 @@
+/*---------------------------   menu   ---------------------------*/
+
+.header{
+    width: 100%;
+    /* background-color: black;  */
+}
+.menu{
+    font-family: 'Lexend Exa', sans-serif;
+    position: relative;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    animation: slide-in 1s ease-out;
+    padding: 2px 20px;
+    cursor: pointer;
+}
+
+.menu ul{ text-align:center;}
+.menu a {
+  color: rgba(255, 255, 255, 0.901);
+  font-weight: bolder;
+  -webkit-text-stroke: 0.3px rgb(55, 88, 195);
+  font-family: fantasy;
+  padding: 14px 10px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  font-style:oblique;
+  transform:translateY(-50%);
+  font-weight:bolder;
+  background-color: #650986b7;
+  color: rgb(255, 255, 255);
+  border-radius: 25px;
+
+}
+
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+footer{
+    color: rgb(199, 199, 199);
+    /* background-color: #000000; */
+    text-align: center;
+    position: fixed;
+    left: 0%;
+    font-size: 18px;
+    padding-top: 3px ;
+    padding-bottom: 3px;
+    bottom: 0px;
+    width: 100%;
+    
+  }
+
+/*---------------------------   login   ---------------------------*/
+
+
+.loginBtn{
+    background-color: #650986b7;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 3px 1px;
+    border-radius: 20px;
+    font: bold 24px/1 sans-serif;
+    /* text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red; */
+    text-shadow: 0 0 10px rgb(55, 88, 195), 0 0 5px rgb(55, 88, 195);
+    border: 1px solid rgb(55, 88, 195);
+	cursor: pointer;
+
+}
+
+
+#welcomePage button:hover{
+    background-color:  #65098643;
+    color: rgb(255, 255, 255);
+}
+
+#LoginPage button:hover{
+    background-color:  #e8b91d77;
+    color: rgb(255, 255, 255);
+}
+
+
+/*---------------------------   Registration   ---------------------------*/
+h1{
+	text-align: center;
+	letter-spacing: 5px;
+	font-size: 50px;
+	color: rgba(175, 0, 0, 0);
+	-webkit-text-stroke: 2px #e8901d;
+}
+/* * {box-sizing: border-box} */
+
+.registrationForm {
+	border-radius: 15px;
+  	background-color: rgba(150, 150, 150, 0.407);
+  	width: 400px;
+    margin-left: 2%;
+
+}
+
+label{
+	margin-left: 3%;
+	font-family: cursive;
+	letter-spacing: 2px;
+}
+
+input[type=text], input[type=password] {
+    background-color: rgba(255, 255, 255, 0.618);
+    font-size: 12px;
+    color: black;
+    width: 90%;
+    padding: 5px;
+    margin-left: 2%;
+    border-radius: 10px;
+}
+
+.submitRegistration{
+    background-color: #e8901d;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    border-radius: 20px;
+    font: bold 16px/1 sans-serif;
+    margin-left: 36%;
+    text-shadow: 0 0 10px blue, 0 0 5px blue;
+	cursor: pointer;
+
+
+}
+
+/* .submitRegistration :hover{
+	background-color: #e8901d77;
+
+} */
+
+#registrationPage button:hover{
+    background-color:  #e8b91d77;
+    color: rgb(255, 255, 255);
+}
+form .error {
+	display: block;
+	color: #ff0000;
+}
+/*-----------------Configuration --------------------------*/
+.configuration{
+	background-image:url('photos/back_1.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.def_table{
+	margin: 0 auto;
+}
+#configuration button:hover{
+    background-color:  #e8b91d77;
+    color: rgb(255, 255, 255);
+}
+.newGameButton{
+	background-color: #e8901d; 
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	border-radius: 20px;
+	font-size: 25px;
+}
+.newGameButton:hover{
+    background-color: #e8901d77;
+}
+.submitConfiguration{
+    background-color: #e8901d;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 30px;
+    /* text-align: center; */
+    /* text-decoration: none; */
+    display: inline-block;
+    font-size: 25px;
+    margin: 5px 10px;
+    border-radius: 20px;
+    font: bold 16px/1 sans-serif;
+    margin-left:135%;
+    text-shadow: 0 0 10px blue, 0 0 5px blue;
+	cursor: pointer;
+
+}
+
+.submitConfiguration:hover{
+    background-color: #e8901d77;
+}
+
+.container input[type=text],.containertextarea {
+	padding: 14px;
+	border: 2px solid rgba(182, 18, 18, 0.416);
+	border-radius: 4px;
+	resize:horizontal;
+	height: 30px;
+	width: 120px;
+}
+
+.container input[type=button] {
+	padding: 14px;
+	border: 2px solid rgb(113, 114, 114);
+	border-radius: 4px;
+	resize:horizontal;
+	height: 15px;
+	width: 120px;
+}
+
+.container input[type=button]:hover{
+	border: 2px solid rgb(54, 54, 54);
+}
+.container input[type=button]:focus{
+	border: 2px solid rgb(54, 54, 54);
+}
+
+  
+.keyboard_select{
+	width: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+  
+.th-def{
+	color: white;
+	font-size: 18px;
+	font-family:cursive ;
+	width: 200px;
+	padding:5px;
+}
+  
+.th-select{
+	width: 30px;
+	padding:5px;
+}
+
+.container {
+	background-color: rgba(150, 150, 150, 0.407);
+	width: 550px;
+	border-radius: 20px;
+	margin: 0 auto;	  
+}
+  
+#setting button {
+	font-family:"Snell Roundhand, cursive";
+	position:relative;
+	background-color: #ebde2adc; 
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#setting button:hover {
+	background-color:rgb(212, 149, 11);
+}
+  
+.butt_tbl{
+	margin: 0 auto;
+}
+
+
+/*---------------------------   About   ---------------------------*/
+.modal {
+	position: fixed;
+	z-index: 1; 
+	padding-top: 20px; 
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.584); 
+  }
+  
+.modal-content {
+    border-radius: 15px;
+	position: relative;
+	background-color: white;
+    margin-left: 20%;
+	width: 60%;
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.5s;
+	animation-name: animatetop;
+	animation-duration: 0.5s;
+}
+  
+@-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+}
+  
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+  
+.close {
+    font-weight: bold;
+	color: white;
+	font-size: 26px;
+    float: right;
+}
+  
+.close:hover,
+.close:focus {
+	color: #000;
+	cursor: pointer;
+}
+  
+.aboutHeader {
+    border-top-right-radius: 15px;
+	background-color: rgb(212, 149, 11);
+	padding: 2px 16px;
+    border-top-left-radius: 15px;
+	color: white;
+}
+  
+.modal-body {padding: 2px 16px;}
+  
+
+/*---------------------------   game   ---------------------------*/
+
+
+.set_in_game{
+	width: 200px;
+	padding: 0px;
+	color: white;
+}
+
+
+.tbl_game{
+	padding: 0px;
+	/* margin: 0 auto; */
+	width: 1180px;
+	height: 150px;
+	/* border-radius: 15px; */
+  	/* background-color:rgb(211, 203, 90); */
+}
+
+#gamePage button:hover{
+    background-color:  #e8b91d77;
+    color: rgb(255, 255, 255);
+}
+.game_over{
+	color: white;
+	font-size: large;
+}
