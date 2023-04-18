@@ -27,14 +27,14 @@
 			<div id="welcomePage">
 				<center>
 					</br></br></br></br>
-					<img src="photos/Welcome2.png" width=480 height=250>/></br></br></br></br>
+					<img src="photos/welcome2.png" width=480 height=250>/></br></br></br></br>
 					<button onclick="show('LoginPage')" class="loginBtn">Log In</button>
 					<button onclick="show('registrationPage')" class="loginBtn" style="padding: 15px 15px;">Register</button></br>
 				</center>
 				</br></br></br></br></br></br></br></br></br></br>				
 			</div>
 			<!---------------------------   Registration   --------------------------->
-			<div id="registrationPage" style="background-image: url('photos/backRegister.png'); background-size: 100%; background-repeat:no-repeat;" hidden>
+			<div id="registrationPage" style="background-image: url('photos/backRegister.PNG'); background-size: 100%; background-repeat:no-repeat;" hidden>
 					<form class="registrationForm" name="register">
 						<h1>Registration</h1>
 						<hr>
@@ -116,6 +116,40 @@
 								<td>
 									<output id="key_shoot" style="color: white;"></output>
 									<output style="color: white;"> key</output>
+								</td>
+							</tr>
+							<tr>
+								<td class = "th-def">Choose spaceship</td>
+								<td colspan="2"> 
+									<label style="display: inline-block; margin-right: 10px;">
+										<input type="radio" name="imageSpace" value='photos/space1.png' style="margin: 0 auto; display: block;" checked>
+										<img src='photos/space1.png' width=40 height=100 style="margin: 0 auto; display: block;">
+									</label>
+									<label style="display: inline-block; margin-right: 10px;">
+										<input type="radio" name="imageSpace" value='photos/space2.png' style="margin: 0 auto; display: block;">
+										<img src='photos/space2.png' width=40 height=100 style="margin: 0 auto; display: block;">
+									</label>
+									<label style="display: inline-block; margin-right: 10px;">
+										<input type="radio" name="imageSpace" value='photos/space3.png' style="margin: 0 auto; display: block;">
+										<img src='photos/space3.png' width=40 height=100 style="margin: 0 auto; display: block;">
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td class = "th-def">Choose shoot</td>
+								<td colspan="2"> 
+									<label style="display: inline-block; margin-right: 10px; margin-right: 30px; margin-left: 20px;">
+										<input type="radio" name="imageShoot" value='photos/shoot1.png' style="margin: 0 auto; display: block;" checked>
+										<img src='photos/shoot1.png' width=20 height=50 style="margin: 0 auto; display: block;">
+									</label>
+									<label style="display: inline-block; margin-right: 10px; margin-right: 30px;">
+										<input type="radio" name="imageShoot" value='photos/shoot2.png' style="margin: 0 auto; display: block;">
+										<img src='photos/shoot2.png' width=20 height=50 style="margin: 0 auto; display: block;">
+									</label>
+									<label style="display: inline-block; margin-right: 10px;">
+										<input type="radio" name="imageShoot" value='photos/shoot3.png' style="margin: 0 auto; display: block;">
+										<img src='photos/shoot3.png' width=20 height=50 style="margin: 0 auto; display: block;">
+									</label>
 								</td>
 							</tr>
 						</table>
