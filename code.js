@@ -47,6 +47,7 @@ let lblScore;
 let lblTime;
 let table;
 let dateGame;
+
 $(window).on('beforeunload', function(){
 	$(window).scrollTop(0);
   });
@@ -71,7 +72,7 @@ $(window).on('beforeunload', function(){
 	window.clearInterval(intervalFlag15);
 	window.clearInterval(intervalTimeOut);
 	window.clearTimeout(timeoutID);
-	
+
 	count_time = 900;
 	$("#"+"welcomePage").hide();
 	$("#"+"registrationPage").hide();
@@ -404,8 +405,8 @@ function setConfiguration(){
 /************************** Game ****************************/
 function Start() {
 	window.focus();
-	flagSound=1
-	backMusic.play();
+	flagSound=0;
+	stopSound();	
 	flag15=false;
 	numberLive=3;
 	score = 0;
@@ -786,7 +787,7 @@ function Draw() {
 			let add=5;
 			if (board[i][j] == 5) 
 			{
-				context.drawImage(img_space, center.x-width_rec/2, center.y-hight_rec/2,width_rec+add,hight_rec+add);
+				context.drawImage(img_space, center.x-width_rec/2, center.y-hight_rec/2,width_rec-10,hight_rec+add);
 			} 
 			else if (board[i][j] == 4 || board[i][j] == 14) 
 			{
@@ -818,7 +819,7 @@ function Draw() {
 				}
 
 				board[i][j] = board[i][j]-6
-				context.drawImage(img_shoot, center.x, center.y,10,hight_rec+add);
+				context.drawImage(img_shoot, center.x-10, center.y,10,hight_rec+add);
 			} 
 			if (board[i][j]>=10&& i<hight_bord){
 				context.drawImage(img_egg, center.x-hight_rec/4+2, center.y-width_rec/2-8,30,30);
@@ -830,7 +831,8 @@ function Draw() {
 function creat_image()
 {
 	img_space=new Image();
-	img_space.src='photos/space.png';
+	img_space.src=document.querySelector('input[name="imageSpace"]:checked').value;
+	
 
 	img_chick_5Points = new Image();
 	img_chick_5Points.src='photos/chick1.png';
@@ -846,7 +848,7 @@ function creat_image()
 	img_chick_20Points.src='photos/chick4.png';
 
 	img_shoot= new Image();
-	img_shoot.src='photos/shoot.png';
+	img_shoot.src=document.querySelector('input[name="imageShoot"]:checked').value;
 
 	img_egg= new Image();
 	img_egg.src='photos/egg.png';
@@ -856,6 +858,7 @@ function creat_image()
 
 function stopSound() {
 	const stopButton = document.getElementById("stopSound");
+
 	if(flagSound==0){
 		flagSound=1
 		backMusic.play();
