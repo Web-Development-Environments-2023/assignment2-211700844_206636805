@@ -1,8 +1,9 @@
 /*---------------------------   menu   ---------------------------*/
-
+.body{
+	zoom: "100%"
+}
 .header{
     width: 100%;
-    /* background-color: black;  */
 }
 .menu{
     font-family: 'Lexend Exa', sans-serif;
@@ -352,11 +353,8 @@ form .error {
 
 .tbl_game{
 	padding: 0px;
-	/* margin: 0 auto; */
 	width: 1180px;
 	height: 150px;
-	/* border-radius: 15px; */
-  	/* background-color:rgb(211, 203, 90); */
 }
 
 #gamePage button:hover{
