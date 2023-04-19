@@ -48,6 +48,13 @@ let lblTime;
 let table;
 let dateGame;
 
+window.onkeydown = function(e) {
+	if (e.keyCode == 32 && e.target == document.body) {
+		e.preventDefault();
+	}
+};
+
+
 $(window).on('beforeunload', function(){
 	$(window).scrollTop(0);
   });
@@ -225,6 +232,7 @@ $(function() {
 	$.validator.addMethod('validPassword', function (value) {
 		return /[a-z].*[0-9]|[0-9].*[a-z]/i.test(value);
 	});
+
 });
 	
 var days_of_month = [31,28,31,30,31,30,31,31,30,31,30,31];
