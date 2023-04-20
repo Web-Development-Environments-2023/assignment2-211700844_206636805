@@ -26,7 +26,7 @@ let move_right=false;
 let img_shoot;
 let i_shoot;
 let j_shoot;
-let count_time = 900;
+let count_time = 750;
 let keyCode=32;
 let hasBeenPressed = false;
 let arrayChicken= [];
@@ -80,7 +80,7 @@ $(window).on('beforeunload', function(){
 	window.clearInterval(intervalTimeOut);
 	window.clearTimeout(timeoutID);
 
-	count_time = 900;
+	count_time = 750;
 	$("#"+"welcomePage").hide();
 	$("#"+"registrationPage").hide();
 	$("#"+"about").hide();
@@ -419,7 +419,7 @@ function Start() {
 	numberLive=3;
 	score = 0;
 	board = new Array();
-	count_time = 900;
+	count_time = 750;
 	randomInt = Math.floor(Math.random() * (wight_bord-1));
 	$("#"+'life1').show();
 	$("#"+'life2').show();
