@@ -6,15 +6,15 @@ let timeGame;
 let backMusic;
 let badMusic;
 let goodMusic;
-var soundGame;
+let soundGame;
 let flagSound=1;
 let numberLive=3;
-var interval;
-var board;
+let interval;
+let board;
 let hight_bord=11;
 let wight_bord=16;
-var space_loc = new Object();
-var keysDown;
+let space_loc = new Object();
+let keysDown;
 let time_elapsed;
 let start_time;
 let img_space;
@@ -235,28 +235,28 @@ $(function() {
 
 });
 	
-var days_of_month = [31,28,31,30,31,30,31,31,30,31,30,31];
+let days_of_month = [31,28,31,30,31,30,31,31,30,31,30,31];
 $(document).ready(function(){
-	var option = '<option value="day">day</option>';
-	var selectedDay="day";
-	for (var i=1;i <= days_of_month[0];i++){ //add option days
+	let option = '<option value="day">day</option>';
+	let selectedDay="day";
+	for (let i=1;i <= days_of_month[0];i++){ //add option days
 		option += '<option value="'+ i + '">' + i + '</option>';
 	}
 	$('#day').append(option);
 	$('#day').val(selectedDay);
 
-	var option = '<option value="month">month</option>';
-	var selectedMon ="month";
-	for (var i=1;i <= 12;i++){
+	option = '<option value="month">month</option>';
+	let selectedMon ="month";
+	for (let i=1;i <= 12;i++){
 		option += '<option value="'+ i + '">' + i + '</option>';
 	}
 	$('#month').append(option);
 	$('#month').val(selectedMon);
 
-	var d = new Date();
-	var option = '<option value="year">year</option>';
+	let d = new Date();
+	option = '<option value="year">year</option>';
 	selectedYear ="year";
-	for (var i=(d.getFullYear()-120);i <= d.getFullYear();i++){
+	for (let i=(d.getFullYear()-120);i <= d.getFullYear();i++){
 		option += '<option value="'+ i + '">' + i + '</option>';
 	}
 	$('#year').append(option);
@@ -283,11 +283,11 @@ function change_year(select)
 			days_of_month[1] = 29;
 			if( $("#month").val() == 2)
 			{
-					var day = $('#day');
-					var val = $(day).val();
+					let day = $('#day');
+					let val = $(day).val();
 					$(day).empty();
-					var option = '<option value="day">day</option>';
-					for (var i=1;i <= days_of_month[1];i++){ //add option days
+					let option = '<option value="day">day</option>';
+					for (let i=1;i <= days_of_month[1];i++){ //add option days
 							option += '<option value="'+ i + '">' + i + '</option>';
 					}
 					$(day).append(option);
@@ -304,12 +304,12 @@ function change_year(select)
 }
 
 function change_month(select) {
-	var day = $('#day');
-	var val = $(day).val();
+	let day = $('#day');
+	let val = $(day).val();
 	$(day).empty();
-	var option = '<option value="day">day</option>';
-	var month = parseInt( $(select).val() ) - 1;
-	for (var i=1;i <= days_of_month[ month ];i++){ //add option days
+	let option = '<option value="day">day</option>';
+	let month = parseInt( $(select).val() ) - 1;
+	for (let i=1;i <= days_of_month[ month ];i++){ //add option days
 		option += '<option value="'+ i + '">' + i + '</option>';
 	}
 	$(day).append(option);
@@ -428,9 +428,9 @@ function Start() {
 	document.getElementById("globalTime").value=timeGame;
 	lblScore=document.getElementById("lblScore");
 	dateGame=new Date();
-	for (var i = 0; i < hight_bord; i++) {
+	for (let i = 0; i < hight_bord; i++) {
 		board[i] = new Array();
-		for (var j = 0; j < wight_bord; j++) {
+		for (let j = 0; j < wight_bord; j++) {
 			if (i==0 && j>=((wight_bord-1)/3) && j<(((wight_bord-1)/3)+5))  {
 				board[i][j]=4;
 			}
@@ -513,8 +513,8 @@ function Start() {
 
 	intervalChickLock=setInterval(function() {
 		arrayChicken= [];
-		for (var j = 0; j < wight_bord; j++) {
-			for (var i = 0; i < 4; i++){
+		for (let j = 0; j < wight_bord; j++) {
+			for (let i = 0; i < 4; i++){
 				if (board[i][j]!=0){
 					let o=new Object();
 					o.x=i;
@@ -532,9 +532,9 @@ function Start() {
 			jChicken=arrayChicken[randomIndex].y
 			board[iChicken+1][jChicken]=board[iChicken+1][jChicken]+10
 		}
-		for (var i = 0; i < hight_bord-1; i++) {
-			for (var j = 0; j < wight_bord; j++) {
-				var center = new Object();
+		for (let i = 0; i < hight_bord-1; i++) {
+			for (let j = 0; j < wight_bord; j++) {
+				let center = new Object();
 				center.y = i * width_rec+width_rec/2;
 				center.x = j * hight_rec+hight_rec/2 ;
 				if (board[i][j]>=10&& i<hight_bord){
@@ -542,8 +542,8 @@ function Start() {
 				}
 			}
 		}
-		for (var i = hight_bord-2; i >= 0; i--) {
-			for (var j = 0; j < wight_bord; j++) {
+		for (let i = hight_bord-2; i >= 0; i--) {
+			for (let j = 0; j < wight_bord; j++) {
 				if (board[i][j]>=10&& i<hight_bord){
 					board[i][j]=board[i][j]-10
 					board[i+1][j]=board[i+1][j]+10
@@ -554,8 +554,8 @@ function Start() {
 	}
 	, 320);
 	intervalFlag15=setInterval(function() {
-		for (var i = hight_bord-2; i >= 7; i--) {
-			for (var j = 0; j < wight_bord; j++) {
+		for (let i = hight_bord-2; i >= 7; i--) {
+			for (let j = 0; j < wight_bord; j++) {
 				if(board[i][j]==15){
 					flag15=true
 					downLive()
@@ -571,12 +571,12 @@ function Start() {
 }
 
 function extractTableData() {
-	var table = document.getElementById("myTable");
-	var rows = table.querySelectorAll("tr");
-	var data = [];
-	for (var i = 1; i < rows.length; i++) {
-	  var cells = rows[i].querySelectorAll("td");
-	  var rowData = {
+	let table = document.getElementById("myTable");
+	let rows = table.querySelectorAll("tr");
+	let data = [];
+	for (let i = 1; i < rows.length; i++) {
+	  let cells = rows[i].querySelectorAll("td");
+	  let rowData = {
 		Score: cells[1].innerText,
 		Date: cells[2].innerText
 	  };
@@ -600,11 +600,11 @@ function addRow(){
 	while(table.rows.length > 1) {
 		table.deleteRow(table.rows.length-1);
 	}		
-	for (var i = 0; i < newArray.length; i++) {
-		var row = table.insertRow(i+1);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
+	for (let i = 0; i < newArray.length; i++) {
+		let row = table.insertRow(i+1);
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
 		cell1.innerHTML = newArray[i].Place;
 		cell2.innerHTML = newArray[i].Score;
 		cell3.innerHTML = newArray[i].Date;
@@ -645,7 +645,7 @@ function UpdatePosition(){
 		}
 	}
 	board[space_loc.i][space_loc.j]=5;
-	var currentTime = new Date();
+	let currentTime = new Date();
 	time_elapsed = timeGame-(currentTime - start_time) / 1000;
 	if ( time_elapsed<=0) {
 		if(score<100 && numberLive>0)
@@ -674,8 +674,8 @@ function UpdatePosition(){
 function UpdatePosition2(){
 	let maxIndex=0;
 	let minIndex=wight_bord-1;
-	for (var j = 0; j < wight_bord; j++) {
-		for  (var i = 0; i < 4; i++){
+	for (let j = 0; j < wight_bord; j++) {
+		for  (let i = 0; i < 4; i++){
 			if (board[i][j]==(4-i) && j<minIndex){
 				minIndex=j
 			}
@@ -693,8 +693,8 @@ function UpdatePosition2(){
 	}
 
 	if(move_right){
-		for (var j = maxIndex+1; j > minIndex-1; j--) {
-			for (var i = 0; i < 4; i++){
+		for (let j = maxIndex+1; j > minIndex-1; j--) {
+			for (let i = 0; i < 4; i++){
 				if (j==0){
 					board[i][j]=0
 				}
@@ -712,8 +712,8 @@ function UpdatePosition2(){
 		}
 	}
 	else{
-		for (var j = minIndex-1; j < maxIndex+1; j++) {
-			for (var i = 0; i < 4; i++){
+		for (let j = minIndex-1; j < maxIndex+1; j++) {
+			for (let i = 0; i < 4; i++){
 				if(j==(wight_bord-1)){
 					board[i][j]=0
 				}
@@ -737,8 +737,8 @@ function UpdatePosition2(){
 
 
 function canEgg(){
-	for (var i = 0; i < 7; i++) {
-		for (var j = 0; j < wight_bord; j++) {
+	for (let i = 0; i < 7; i++) {
+		for (let j = 0; j < wight_bord; j++) {
 			if (board[i][j] >=10){
 				return false;
 			}
@@ -747,8 +747,8 @@ function canEgg(){
 	return true;
 }
 function existChicken(){
-	for (var i = 0; i < 5; i++) {
-		for (var j = 0; j < wight_bord; j++) {
+	for (let i = 0; i < 5; i++) {
+		for (let j = 0; j < wight_bord; j++) {
 			if (board[i][j] !=0 && board[i][j]!=10 && board[i][j]!=6){
 				return false;
 			}
@@ -757,8 +757,8 @@ function existChicken(){
 	return true;
 }
 function cleanBoard(){
-	for (var i = 0; i < hight_bord-1; i++) {
-		for (var j = 0; j < wight_bord; j++) {
+	for (let i = 0; i < hight_bord-1; i++) {
+		for (let j = 0; j < wight_bord; j++) {
 			if (board[i][j]>=10){
 				if(board[i][j]==15){
 					board[i][j]=0
@@ -787,9 +787,9 @@ function Draw() {
 	canvas.width = canvas.width;
 	lblScore.value = score;
 	lblTime.value = Math.floor(time_elapsed) +" sec";
-	for (var i = 0; i < hight_bord-1; i++) {
-		for (var j = 0; j < wight_bord; j++) {
-			var center = new Object();
+	for (let i = 0; i < hight_bord-1; i++) {
+		for (let j = 0; j < wight_bord; j++) {
+			let center = new Object();
 			center.y = i * width_rec+width_rec/2;
 			center.x = j * hight_rec+hight_rec/2 ;
 			let add=5;
